@@ -1,0 +1,13 @@
+
+#URL=https://oss.sonatype.org/content/repositories/releases/org/commonjava/aprox/launch/aprox-launcher-savant/maven-metadata.xml
+
+#ETC_URL=https://github.com/project-ncl/aprox-demo-etc.git
+#VERSION_FILE=$HOME/.autodeploy.demo.last
+#BASE=/opt/aprox-demo
+#PORT=8180
+#SSH=/root/.ssh
+#CONTAINER_NAME=aprox-demo
+#IMAGE_NAME=docker.io/commonjava/aprox:latest
+#SERVICE_NAME=aprox-server-demo
+
+#EXTRA_PARAMS='--proxy-port=18080'

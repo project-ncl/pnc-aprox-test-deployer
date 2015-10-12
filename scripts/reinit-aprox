@@ -1,0 +1,17 @@
+#!/bin/bash
+
+set -x
+
+DIR=$(dirname $(pwd -P))
+source $DIR/ENV
+
+systemctl stop $SERVICE_NAME
+docker stop $CONTAINER_NAME
+docker rm $CONTAINER_NAME
+
+docker pull $IMAGE_NAME
+
+$BASE/scripts/init-aprox -q
+
+systemctl start $SERVICE_NAME
+journalctl -f

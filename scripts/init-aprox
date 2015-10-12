@@ -1,0 +1,17 @@
+#!/bin/bash
+
+set -x
+
+DIR=$(dirname $(pwd -P))
+source $DIR/ENV
+
+$BASE/aprox-docker/init-aprox-server-no-vols.py  -E ${ETC_URL} \
+                                                 --port=$PORT \
+                                                 --sshdir=$SSH \
+                                                 --name=$CONTAINER_NAME \
+                                                 --image=$IMAGE_NAME \
+                                                 --logs=$BASE/logs \
+                                                 --data=$BASE/data \
+                                                 --config=$BASE/etc \
+                                                 --storage=$BASE/storage \
+                                                 $EXTRA_PARAMS $@
