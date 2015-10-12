@@ -1,2 +1,7 @@
 aprox-docker
 ENV
+storage
+logs
+etc
+data
+.autodeploy.*
