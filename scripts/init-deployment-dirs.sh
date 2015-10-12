@@ -8,7 +8,7 @@ echo "Initializing AProx directories in $DIR"
 
 pushd $DIR
 mkdir data etc logs storage
-git clone https://github.com/commonjava/aprox-docker-utils.git
+git clone https://github.com/commonjava/aprox-docker.git
 popd
 
 echo "$DIR now contains the following subdirectories:"
