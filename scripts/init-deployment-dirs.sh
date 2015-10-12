@@ -14,5 +14,6 @@ popd
 echo "$DIR now contains the following subdirectories:"
 ls -1 $DIR
 
+echo "Now, copy $DIR/ENV.prototype to $DIR/ENV."
 echo "Next, adjust the $DIR/ENV file to match your desired deployment options."
-echo "Then, to deploy AProx, call: $DIR/scripts/init-aprox"
+echo "Then, to deploy AProx, call: $DIR/scripts/init-aprox --version=<initial-aprox-version>"
