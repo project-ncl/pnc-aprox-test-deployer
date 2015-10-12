@@ -2,7 +2,7 @@
 
 set -x
 
-DIR=$(dirname $(pwd -P))
+DIR=$(dirname $(dirname $(realpath $0)))
 source $DIR/ENV
 
 systemctl stop $SERVICE_NAME
