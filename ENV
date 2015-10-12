@@ -11,3 +11,4 @@
 #SERVICE_NAME=aprox-server-demo
 
 #EXTRA_PARAMS='--proxy-port=18080'
+#EXTRA_UPGRADE_PARAMS='--release'

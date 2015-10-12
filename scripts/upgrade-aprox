@@ -9,5 +9,6 @@ $BASE/aprox-docker/autodeploy-url.py --service=$SERVICE_NAME \
                                      --versionfile=$VERSION_FILE \
                                      --image=$IMAGE_NAME \
                                      --name=$CONTAINER_NAME \
+                                     $EXTRA_UPGRADE_PARAMS \
                                      --url="$URL" \
                                      $BASE/scripts/init-aprox -q  --url={url}
