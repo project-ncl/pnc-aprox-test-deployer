@@ -5,6 +5,18 @@ set -x
 DIR=$(dirname $(dirname $(realpath $0)))
 source $DIR/ENV
 
+GOT_VERSION=0
+for arg in $@; do
+	if [[ $arg == "-V" ]] || [[ $arg == --version* ]]; then
+		GOT_VERSION=1
+	fi
+done
+
+VERSION_PARAM=""
+if [[ $GOT_VERSION == 0 ]] && [ -f $VERSION_FILE ]; then
+	VERSION_PARAM="--version=$(cat VERSION_FILE)"
+fi
+
 $BASE/aprox-docker/init-aprox-server-no-vols.py  -E ${ETC_URL} \
                                                  --port=$PORT \
                                                  --sshdir=$SSH \
@@ -14,4 +26,5 @@ $BASE/aprox-docker/init-aprox-server-no-vols.py  -E ${ETC_URL} \
                                                  --data=$BASE/data \
                                                  --config=$BASE/etc \
                                                  --storage=$BASE/storage \
+                                                 $VERSION_PARAM \
                                                  $EXTRA_PARAMS $@
