@@ -13,7 +13,7 @@ for arg in $@; do
 done
 
 VERSION_PARAM=""
-if [[ $GOT_VERSION == 0 ]] && [ -f $VERSION_FILE ]; then
+if [ "$GOT_VERSION" == "0" ] && [ -f $VERSION_FILE ]; then
 	VERSION_PARAM="--version=$(cat VERSION_FILE)"
 fi
 
