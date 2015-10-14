@@ -7,7 +7,8 @@ DIR=$(dirname $(dirname $(realpath $0)))
 echo "Initializing AProx directories in $DIR"
 
 pushd $DIR
-mkdir data etc logs storage
+mkdir ssh data etc logs storage
+ssh-keygen -C "$(basename $DIR)@$(hostname)" -N '' -f ssh/id_rsa
 git clone https://github.com/commonjava/aprox-docker.git
 popd
 
