@@ -14,7 +14,9 @@ done
 
 VERSION_PARAM=""
 if [ "$GOT_VERSION" == "0" ] && [ -f $VERSION_FILE ]; then
-	VERSION_PARAM="--version=$(cat VERSION_FILE)"
+       V=$(cat $VERSION_FILE)
+       echo "Using last autodeploy version: $V"
+	VERSION_PARAM="--version=$V"
 fi
 
 $BASE/aprox-docker/init-aprox-server-no-vols.py  -E ${ETC_URL} \
