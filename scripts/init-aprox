@@ -19,8 +19,12 @@ if [ "$GOT_VERSION" == "0" ] && [ -f $VERSION_FILE ]; then
 	VERSION_PARAM="--version=$V"
 fi
 
-$BASE/aprox-docker/init-aprox-server-no-vols.py  -E ${ETC_URL} \
-                                                 --port=$PORT \
+ETC_PARAM=""
+if [ "x$ETC_URL" != "x" ]; then
+    ETC_PARAM="-E ${ETC_URL}"
+fi
+
+$BASE/aprox-docker/init-aprox-server-no-vols.py  --port=$PORT \
                                                  --sshdir=$SSH \
                                                  --name=$CONTAINER_NAME \
                                                  --image=$IMAGE_NAME \
@@ -28,5 +32,6 @@ $BASE/aprox-docker/init-aprox-server-no-vols.py  -E ${ETC_URL} \
                                                  --data=$BASE/data \
                                                  --config=$BASE/etc \
                                                  --storage=$BASE/storage \
+                                                 ${ETC_PARAM} \
                                                  $VERSION_PARAM \
                                                  $EXTRA_PARAMS $@
