@@ -6,14 +6,18 @@ DIR=$(dirname $(dirname $(realpath $0)))
 source $DIR/ENV
 
 GOT_VERSION=0
+GOT_URL=0
 for arg in $@; do
 	if [[ $arg == "-V" ]] || [[ $arg == --version* ]]; then
 		GOT_VERSION=1
-	fi
+
+  elif [[ $arg == --url* ]]; then
+    GOT_URL=1
+  fi
 done
 
 VERSION_PARAM=""
-if [ "$GOT_VERSION" == "0" ] && [ -f $VERSION_FILE ]; then
+if [ "$GOT_URL" == "0" ] && [ "$GOT_VERSION" == "0" ] && [ -f $VERSION_FILE ]; then
        V=$(cat $VERSION_FILE)
        echo "Using last autodeploy version: $V"
 	VERSION_PARAM="--version=$V"

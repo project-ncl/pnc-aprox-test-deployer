@@ -11,7 +11,7 @@ docker rm $CONTAINER_NAME
 
 docker pull $IMAGE_NAME
 
-$BASE/scripts/init-aprox -q
+$BASE/scripts/init-aprox -q $@
 
 systemctl start $SERVICE_NAME
 journalctl -f
